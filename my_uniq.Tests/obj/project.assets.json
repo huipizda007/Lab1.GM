@@ -615,6 +615,16 @@
           "build/netcoreapp3.1/NUnit3TestAdapter.props": {},
           "build/netcoreapp3.1/NUnit3TestAdapter.targets": {}
         }
+      },
+      "my_uniq/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/my_uniq.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/my_uniq.dll": {}
+        }
       }
     }
   },
@@ -1504,6 +1514,11 @@
         "nunit3testadapter.nuspec",
         "nunit_256.png"
       ]
+    },
+    "my_uniq/1.0.0": {
+      "type": "project",
+      "path": "../my_uniq/my_uniq.csproj",
+      "msbuildProject": "../my_uniq/my_uniq.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1512,7 +1527,8 @@
       "NUnit >= 4.3.2",
       "NUnit.Analyzers >= 4.7.0",
       "NUnit3TestAdapter >= 5.0.0",
-      "coverlet.collector >= 6.0.4"
+      "coverlet.collector >= 6.0.4",
+      "my_uniq >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1539,7 +1555,11 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\rrieye\\Desktop\\Lab1_GM\\lab1-my-uniq\\my_uniq\\my_uniq.csproj": {
+              "projectPath": "C:\\Users\\rrieye\\Desktop\\Lab1_GM\\lab1-my-uniq\\my_uniq\\my_uniq.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

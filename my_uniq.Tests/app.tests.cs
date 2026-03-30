@@ -93,4 +93,33 @@ public class AppTests
 
         Assert.That(error.ToString(), Does.Contain("File not found"));
     }
+
+    [Test]
+    public void Run_FileHasPriorityOverStdin()
+    {
+        var input = new StringReader("x\nx\nx\n");
+        
+        var output = new StringWriter();
+        var error = new StringWriter();
+        
+        string tempFile = Path.GetTempFileName();
+        File.WriteAllText(tempFile, "a\na\nb\n");
+        
+        try
+        {
+            int exitCode = App.Run(new[] { tempFile }, input, output, error);
+            
+            Assert.That(exitCode, Is.EqualTo(0));
+            
+            Assert.That(output.ToString(),
+                Is.EqualTo("a\nb\n".Replace("\n", Environment.NewLine)));
+            
+            Assert.That(error.ToString(), Is.Empty);
+        }
+        finally
+        {
+            File.Delete(tempFile);
+        }
+    }
 }
+
